@@ -120,7 +120,7 @@
 	<appPropaty>
 		<_AppTitle>labSota</_AppTitle>
 		<_ApplicationType>App</_ApplicationType>
-		<_ExecOption i:nil="true" />
+		<_ExecOption>-Dfile.encoding=UTF8 -Djava.library.path=/usr/local/share/OpenCV/java/ </_ExecOption>
 		<_StartSoundFile></_StartSoundFile>
 		<_Trigger>Button</_Trigger>
 		<_TriggerOperation></_TriggerOperation>
@@ -3495,6 +3495,13 @@
 		<d2p1:string>CallA.wav</d2p1:string>
 		<d2p1:string>CallB.wav</d2p1:string>
 		<d2p1:string>CallC.wav</d2p1:string>
+		<d2p1:string>CallD.wav</d2p1:string>
+		<d2p1:string>CallE.wav</d2p1:string>
+		<d2p1:string>CallF.wav</d2p1:string>
+		<d2p1:string>CallG.wav</d2p1:string>
+		<d2p1:string>CallH.wav</d2p1:string>
+		<d2p1:string>writeTest.txt</d2p1:string>
+		<d2p1:string>体温.txt</d2p1:string>
 	</resourcePath>
 	<robotUsers>
 		<RobotUser>
@@ -3537,7 +3544,7 @@
 				</uintID>
 			</MotSend>
 			<debugPort>8765</debugPort>
-			<host>192.168.1.25</host>
+			<host>192.168.1.15</host>
 			<password>edison00</password>
 			<platform>Edison</platform>
 			<rootPath>/home/root/</rootPath>
