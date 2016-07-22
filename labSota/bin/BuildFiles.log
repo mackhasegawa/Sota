@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <BuildOmitCheck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <javacPath>C:\Program Files (x86)\VstoneMagic\jdk\bin\javac.exe</javacPath>
-  <argument> -d "C:\Users\makino\Documents\VstoneMagic\WorkSpace\labSota\bin"  -g  -cp ".;C:\Users\makino\VstoneMagicData\jar\core-2.2.jar;C:\Users\makino\VstoneMagicData\jar\gson-2.6.1.jar;C:\Users\makino\VstoneMagicData\jar\javase-2.2.jar;C:\Users\makino\VstoneMagicData\jar\jna-4.1.0.jar;C:\Users\makino\VstoneMagicData\jar\opencv-310.jar;C:\Users\makino\VstoneMagicData\jar\sotalib.jar;C:\Users\makino\VstoneMagicData\jar\SRClientHelper.jar"  -encoding UTF-8 </argument>
+  <argument> -d "C:\Users\makino\Documents\VstoneMagic\WorkSpace\labSota\bin"  -g  -cp ".;C:\Users\makino\VstoneMagicData\jar\commons-codec-1.10.jar;C:\Users\makino\VstoneMagicData\jar\core-2.2.jar;C:\Users\makino\VstoneMagicData\jar\gson-2.6.1.jar;C:\Users\makino\VstoneMagicData\jar\javase-2.2.jar;C:\Users\makino\VstoneMagicData\jar\jna-4.1.0.jar;C:\Users\makino\VstoneMagicData\jar\opencv-310.jar;C:\Users\makino\VstoneMagicData\jar\sotalib.jar;C:\Users\makino\VstoneMagicData\jar\SRClientHelper.jar"  -encoding UTF-8 </argument>
   <files>
     <FileData>
       <path>jp\co\mysota\mymain.java</path>
-      <timestamp>2016-07-12T18:11:24.5409747+09:00</timestamp>
-      <size>11345</size>
-      <ignore>true</ignore>
-    </FileData>
-    <FileData>
-      <path>jp\co\mysota\face.java</path>
-      <timestamp>2016-07-12T17:43:10.9838365+09:00</timestamp>
-      <size>15997</size>
+      <timestamp>2016-07-22T18:58:15.7558829+09:00</timestamp>
+      <size>44705</size>
       <ignore>true</ignore>
     </FileData>
   </files>

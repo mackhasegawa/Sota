@@ -103,6 +103,13 @@
 			<parentPb i:nil="true" />
 			<type>RecogResult</type>
 		</MemberValueObject>
+		<MemberValueObject>
+			<initialize>(Random)new Random()</initialize>
+			<memberVariableLine>0</memberVariableLine>
+			<name>random</name>
+			<parentPb i:nil="true" />
+			<type>Random</type>
+		</MemberValueObject>
 	</_globalVariables>
 	<_import xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
 		<d2p1:string>jp.vstone.RobotLib.*</d2p1:string>
@@ -110,10 +117,11 @@
 		<d2p1:string>jp.vstone.camera.*</d2p1:string>
 		<d2p1:string>jp.vstone.camera.FaceDetectLib.*</d2p1:string>
 		<d2p1:string>jp.vstone.sotatalk.*</d2p1:string>
+		<d2p1:string>java.util.Random</d2p1:string>
 	</_import>
 	<_isDisableCollidionDetect>false</_isDisableCollidionDetect>
 	<_isSetAutoExecute>false</_isSetAutoExecute>
-	<_mainFuncName>jp.co.mysota.mymain.main()</_mainFuncName>
+	<_mainFuncName>jp.co.mysota.mymain.method()</_mainFuncName>
 	<_manifestClassPath xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
 	<_target>Sota</_target>
 	<_templeteMainClassFilePath>src\mainTemplete.source</_templeteMainClassFilePath>
@@ -401,7 +409,6 @@
 		<javaPackage>
 			<javaClass xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
 				<d4p1:string>mymain.java</d4p1:string>
-				<d4p1:string>face.java</d4p1:string>
 			</javaClass>
 			<name>jp.co.mysota</name>
 			<resources xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
@@ -3502,6 +3509,8 @@
 		<d2p1:string>CallH.wav</d2p1:string>
 		<d2p1:string>writeTest.txt</d2p1:string>
 		<d2p1:string>体温.txt</d2p1:string>
+		<d2p1:string>動作ログ.txt</d2p1:string>
+		<d2p1:string>OCtest.txt</d2p1:string>
 	</resourcePath>
 	<robotUsers>
 		<RobotUser>
@@ -3544,7 +3553,7 @@
 				</uintID>
 			</MotSend>
 			<debugPort>8765</debugPort>
-			<host>192.168.1.15</host>
+			<host>192.168.1.31</host>
 			<password>edison00</password>
 			<platform>Edison</platform>
 			<rootPath>/home/root/</rootPath>

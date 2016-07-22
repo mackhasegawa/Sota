@@ -14,7 +14,6 @@ public class face
 
 	public int addFaceuserErrSayInterval;
 	public String faceName;
-	public String callName;
 	public String date_string;
 	public String time_string;
 	public CRobotPose pose;
@@ -151,14 +150,12 @@ public class face
 	}																													//@<EndOfBlock/>
 
 	//@<Separate/>
-	public face()																										//@<BlockInfo>jp.vstone.block.func.constructor,16,16,720,16,False,20,@</BlockInfo>
+	public face()																										//@<BlockInfo>jp.vstone.block.func.constructor,16,16,720,16,False,19,@</BlockInfo>
 	{
 																														//@<OutputChild>
-		addFaceuserErrSayInterval=0;																					//@<BlockInfo>jp.vstone.block.variable,96,16,96,16,False,19,break@</BlockInfo>
+		addFaceuserErrSayInterval=0;																					//@<BlockInfo>jp.vstone.block.variable,96,16,96,16,False,18,break@</BlockInfo>
 																														//@<EndOfBlock/>
-		faceName="まつもとくん";																								//@<BlockInfo>jp.vstone.block.variable,160,16,160,16,False,18,break@</BlockInfo>
-																														//@<EndOfBlock/>
-		callName=null;																									//@<BlockInfo>jp.vstone.block.variable,224,16,224,16,False,17,break@</BlockInfo>
+		faceName="まつもとくん";																								//@<BlockInfo>jp.vstone.block.variable,160,16,160,16,False,17,break@</BlockInfo>
 																														//@<EndOfBlock/>
 		/*String date_string*/;																							//@<BlockInfo>jp.vstone.block.variable,288,16,288,16,False,16,break@</BlockInfo>
 																														//@<EndOfBlock/>
@@ -170,12 +167,42 @@ public class face
 	}																													//@<EndOfBlock/>
 
 	//@<Separate/>
-	public void callName()																								//@<BlockInfo>jp.vstone.block.func,48,1104,1216,1104,False,37,@</BlockInfo>
+	public void takePhoto()																								//@<BlockInfo>jp.vstone.block.func,32,1264,352,1264,False,24,@</BlockInfo>
 	throws SpeechRecogAbortException {
 		if(!GlobalVariable.TRUE) throw new SpeechRecogAbortException("default");
 
 																														//@<OutputChild>
-		GlobalVariable.robocam.setEnableFaceSearch(false);																//@<BlockInfo>jp.vstone.block.facedetect.traking,112,1104,1152,1104,False,36,tracking@</BlockInfo>
+		date_string = CRobotUtil.getDateString();																		//@<BlockInfo>jp.vstone.block.time.getdate,96,1264,96,1264,False,23,ロボット内のカレンダーより現在年月日を文字列で取得し、変数String date_stringに代入。@</BlockInfo>
+																														//@<EndOfBlock/>
+		time_string = CRobotUtil.getTimeString();																		//@<BlockInfo>jp.vstone.block.time.gettime,160,1264,160,1264,False,22,ロボット内のカレンダーより現在時刻を文字列で取得し、変数String time_stringに代入。@</BlockInfo>
+																														//@<EndOfBlock/>
+		{																												//@<BlockInfo>jp.vstone.block.facedetect.stillpicture,224,1264,224,1264,False,21,still@</BlockInfo>
+			String filepath = "/var/sota/photo/";
+			filepath += (String)callName+" "+date_string+" "+time_string;
+			boolean isTrakcing=GlobalVariable.robocam.isAliveFaceDetectTask();
+			if(isTrakcing) GlobalVariable.robocam.StopFaceTraking();
+			GlobalVariable.robocam.initStill(new CameraCapture(CameraCapture.CAP_IMAGE_SIZE_5Mpixel, CameraCapture.CAP_FORMAT_MJPG));
+			GlobalVariable.robocam.StillPicture(filepath);
+
+			CRobotUtil.Log("stillpicture","save picthre file to \"" + filepath +"\"");
+			if(isTrakcing) GlobalVariable.robocam.StartFaceTraking();
+		}																												//@<EndOfBlock/>
+		System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");																//@<BlockInfo>jp.vstone.block.freeproc,288,1264,288,1264,False,20,@</BlockInfo>
+		System.out.println(callName + "を撮影しました。");
+		System.out.println("プログラムを終了します。");
+		System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");
+																														//@<EndOfBlock/>
+																														//@</OutputChild>
+
+	}																													//@<EndOfBlock/>
+
+	//@<Separate/>
+	public void callName()																								//@<BlockInfo>jp.vstone.block.func,48,1104,1424,1104,False,42,@</BlockInfo>
+	throws SpeechRecogAbortException {
+		if(!GlobalVariable.TRUE) throw new SpeechRecogAbortException("default");
+
+																														//@<OutputChild>
+		GlobalVariable.robocam.setEnableFaceSearch(false);																//@<BlockInfo>jp.vstone.block.facedetect.traking,320,1104,1360,1104,False,41,tracking@</BlockInfo>
 		GlobalVariable.robocam.setEnableSmileDetect(true);
 		GlobalVariable.robocam.setEnableAgeSexDetect(true);
 
@@ -185,11 +212,11 @@ public class face
 
 
 																														//@<OutputChild>
-			while(GlobalVariable.TRUE)																					//@<BlockInfo>jp.vstone.block.while.endless,176,1104,1088,1104,False,35,Endless@</BlockInfo>
+			while(GlobalVariable.TRUE)																					//@<BlockInfo>jp.vstone.block.while.endless,384,1104,1296,1104,False,40,Endless@</BlockInfo>
 			{
 
 																														//@<OutputChild>
-				GlobalVariable.faceresult = GlobalVariable.robocam.getDetectResult();									//@<BlockInfo>jp.vstone.block.facedetect.isdetect,240,1056,1024,1056,False,34,コメント@</BlockInfo>
+				GlobalVariable.faceresult = GlobalVariable.robocam.getDetectResult();									//@<BlockInfo>jp.vstone.block.facedetect.isdetect,448,1056,1232,1056,False,39,コメント@</BlockInfo>
 
 				if(GlobalVariable.faceresult.isDetect()) GlobalVariable.detectCount++;
 				else GlobalVariable.detectCount=0;
@@ -197,7 +224,7 @@ public class face
 				if(GlobalVariable.detectCount>(int)2)
 				{
 																														//@<OutputChild>
-					GlobalVariable.faceuser = GlobalVariable.robocam.getUser(GlobalVariable.faceresult);				//@<BlockInfo>jp.vstone.block.facedetect.user.get2,304,1008,960,1008,False,32,認識した顔の特徴を取得して、グローバル変数FaceUser faceuserに代入します。また、登録済みのユーザの場合、名前をグローバル変数String facenameに代入します。@</BlockInfo>
+					GlobalVariable.faceuser = GlobalVariable.robocam.getUser(GlobalVariable.faceresult);				//@<BlockInfo>jp.vstone.block.facedetect.user.get2,512,1008,1168,1008,False,37,認識した顔の特徴を取得して、グローバル変数FaceUser faceuserに代入します。また、登録済みのユーザの場合、名前をグローバル変数String facenameに代入します。@</BlockInfo>
 
 					if(GlobalVariable.faceuser != null)
 					{
@@ -205,51 +232,55 @@ public class face
 						else GlobalVariable.facename="";
 						
 																														//@<OutputChild>
-							if(!GlobalVariable.faceuser.isNewUser())														//@<BlockInfo>jp.vstone.block.facedetect.user.isknow,368,960,896,960,False,30,グローバル変数FaceUser faceuserに記録された顔が登録された顔であるか@</BlockInfo>
+							if(!GlobalVariable.faceuser.isNewUser())														//@<BlockInfo>jp.vstone.block.facedetect.user.isknow,576,960,1104,960,False,35,グローバル変数FaceUser faceuserに記録された顔が登録された顔であるか@</BlockInfo>
 							{
 																															//@<OutputChild>
-								callName=(String)GlobalVariable.facename;													//@<BlockInfo>jp.vstone.block.calculater,432,960,432,960,False,28,@</BlockInfo>
+								callName=(String)GlobalVariable.facename;													//@<BlockInfo>jp.vstone.block.calculater,640,960,640,960,False,33,@</BlockInfo>
 																															//@<EndOfBlock/>
-								switch((String)callName)																	//@<BlockInfo>jp.vstone.block.switch,512,544,672,544,False,27,@</BlockInfo>
+									System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");											//@<BlockInfo>jp.vstone.block.freeproc,704,960,704,960,False,32,@</BlockInfo>
+									System.out.println(callName + "を認識しました。");
+									System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");
+																															//@<EndOfBlock/>
+								switch((String)callName)																	//@<BlockInfo>jp.vstone.block.switch,784,560,944,560,False,31,@</BlockInfo>
 								{
 									case (String)"まきのくん":
 									{
 																															//@<OutputChild>
-										CPlayWave.PlayWave("resource/CallA.wav",false);											//@<BlockInfo>jp.vstone.block.sound2,592,544,592,544,False,21,コメント@</BlockInfo>	@<EndOfBlock/>
+										CPlayWave.PlayWave("resource/CallA.wav",false);											//@<BlockInfo>jp.vstone.block.sound2,864,560,864,560,False,25,コメント@</BlockInfo>	@<EndOfBlock/>
 																																	//@</OutputChild>
 										break;
 									}
 									case (String)"かわさきくん":
 									{
 																															//@<OutputChild>
-										CPlayWave.PlayWave("resource/CallB.wav",false);											//@<BlockInfo>jp.vstone.block.sound2,592,640,592,640,False,22,コメント@</BlockInfo>	@<EndOfBlock/>
+										CPlayWave.PlayWave("resource/CallB.wav",false);											//@<BlockInfo>jp.vstone.block.sound2,864,656,864,656,False,26,コメント@</BlockInfo>	@<EndOfBlock/>
 																																	//@</OutputChild>
 										break;
 									}
 									case (String)"しまだくん":
 									{
 																															//@<OutputChild>
-										CPlayWave.PlayWave("resource/CallC.wav",false);											//@<BlockInfo>jp.vstone.block.sound2,592,736,592,736,False,23,コメント@</BlockInfo>	@<EndOfBlock/>
+										CPlayWave.PlayWave("resource/CallC.wav",false);											//@<BlockInfo>jp.vstone.block.sound2,864,752,864,752,False,27,コメント@</BlockInfo>	@<EndOfBlock/>
 																																	//@</OutputChild>
 										break;
 									}
 									case (String)"まつもとくん":
 									{
 																															//@<OutputChild>
-										CPlayWave.PlayWave("resource/CallD.wav",false);											//@<BlockInfo>jp.vstone.block.sound2,592,832,592,832,False,24,コメント@</BlockInfo>	@<EndOfBlock/>
+										CPlayWave.PlayWave("resource/CallD.wav",false);											//@<BlockInfo>jp.vstone.block.sound2,864,848,864,848,False,28,コメント@</BlockInfo>	@<EndOfBlock/>
 																																	//@</OutputChild>
 										break;
 									}
 							
 								}																							//@<EndOfBlock/>
-								takePhoto();																				//@<BlockInfo>jp.vstone.block.callfunc.base,736,688,736,688,False,26,@</BlockInfo>	@<EndOfBlock/>
-								break;																						//@<BlockInfo>jp.vstone.block.break,800,688,800,688,False,25,break@</BlockInfo>	@<EndOfBlock/>
+								takePhoto();																				//@<BlockInfo>jp.vstone.block.callfunc.base,1008,704,1008,704,False,30,@</BlockInfo>	@<EndOfBlock/>
+								break;																						//@<BlockInfo>jp.vstone.block.break,1072,704,1072,704,False,29,break@</BlockInfo>	@<EndOfBlock/>
 																															//@</OutputChild>
 							
 							}else
 							{
 																															//@<OutputChild>
-								CPlayWave.PlayWave("resource/NG.wav",false);												//@<BlockInfo>jp.vstone.block.sound2,496,1056,496,1056,False,29,コメント@</BlockInfo>	@<EndOfBlock/>
+								CPlayWave.PlayWave("resource/NG.wav",false);												//@<BlockInfo>jp.vstone.block.sound2,704,1056,704,1056,False,34,コメント@</BlockInfo>	@<EndOfBlock/>
 																															//@</OutputChild>
 							
 							}
@@ -261,7 +292,7 @@ public class face
 					{
 						
 																														//@<OutputChild>
-							CPlayWave.PlayWave("resource/NG.wav",false);													//@<BlockInfo>jp.vstone.block.sound2,432,1104,432,1104,False,31,コメント@</BlockInfo>	@<EndOfBlock/>
+							CPlayWave.PlayWave("resource/NG.wav",false);													//@<BlockInfo>jp.vstone.block.sound2,640,1104,640,1104,False,36,コメント@</BlockInfo>	@<EndOfBlock/>
 																																//@</OutputChild>
 
 					}
@@ -271,7 +302,7 @@ public class face
 				}else
 				{
 																														//@<OutputChild>
-					CPlayWave.PlayWave("resource/NG.wav",false);														//@<BlockInfo>jp.vstone.block.sound2,368,1152,368,1152,False,33,コメント@</BlockInfo>	@<EndOfBlock/>
+					CPlayWave.PlayWave("resource/NG.wav",false);														//@<BlockInfo>jp.vstone.block.sound2,576,1152,576,1152,False,38,コメント@</BlockInfo>	@<EndOfBlock/>
 																														//@</OutputChild>
 
 				}
@@ -286,31 +317,6 @@ public class face
 		GlobalVariable.robocam.StopFaceTraking();
 
 																														//@<EndOfBlock/>
-																														//@</OutputChild>
-
-	}																													//@<EndOfBlock/>
-
-	//@<Separate/>
-	public void takePhoto()																								//@<BlockInfo>jp.vstone.block.func,32,1264,288,1264,False,41,@</BlockInfo>
-	throws SpeechRecogAbortException {
-		if(!GlobalVariable.TRUE) throw new SpeechRecogAbortException("default");
-
-																														//@<OutputChild>
-		date_string = CRobotUtil.getDateString();																		//@<BlockInfo>jp.vstone.block.time.getdate,96,1264,96,1264,False,40,ロボット内のカレンダーより現在年月日を文字列で取得し、変数String date_stringに代入。@</BlockInfo>
-																														//@<EndOfBlock/>
-		time_string = CRobotUtil.getTimeString();																		//@<BlockInfo>jp.vstone.block.time.gettime,160,1264,160,1264,False,39,ロボット内のカレンダーより現在時刻を文字列で取得し、変数String time_stringに代入。@</BlockInfo>
-																														//@<EndOfBlock/>
-		{																												//@<BlockInfo>jp.vstone.block.facedetect.stillpicture,224,1264,224,1264,False,38,still@</BlockInfo>
-			String filepath = "/var/sota/photo/";
-			filepath += (String)callName+" "+date_string+" "+time_string;
-			boolean isTrakcing=GlobalVariable.robocam.isAliveFaceDetectTask();
-			if(isTrakcing) GlobalVariable.robocam.StopFaceTraking();
-			GlobalVariable.robocam.initStill(new CameraCapture(CameraCapture.CAP_IMAGE_SIZE_5Mpixel, CameraCapture.CAP_FORMAT_MJPG));
-			GlobalVariable.robocam.StillPicture(filepath);
-
-			CRobotUtil.Log("stillpicture","save picthre file to \"" + filepath +"\"");
-			if(isTrakcing) GlobalVariable.robocam.StartFaceTraking();
-		}																												//@<EndOfBlock/>
 																														//@</OutputChild>
 
 	}																													//@<EndOfBlock/>

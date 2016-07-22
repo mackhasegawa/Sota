@@ -11,6 +11,7 @@ import jp.vstone.sotatalk.SpeechRecog.*;
 import jp.vstone.camera.*;
 import jp.vstone.camera.FaceDetectLib.*;
 import jp.vstone.sotatalk.*;
+import java.util.Random;
 
 
 public class main
@@ -40,7 +41,7 @@ public class main
 			jp.co.mysota.mymain mymain = new jp.co.mysota.mymain();
 			try
 			{
-				mymain.main();
+				mymain.method();
 			} catch(Exception e)
 			{
 				System.out.println("例外が発生しました:");
@@ -66,6 +67,7 @@ public class main
 		public static FaceDetectResult faceresult = new FaceDetectResult();
 		public static int detectCount = 0;
 		public static RecogResult abortresult;
+		public static Random random = new Random();
 	}
 
 
