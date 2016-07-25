@@ -406,23 +406,23 @@ public class mymain
 																															//@<EndOfBlock/>
 								GlobalVariable.sotawish.Say((String)"君は" + callName + "だよね？",MotionAsSotaWish.MOTION_TYPE_TALK,(int)11,(int)13,(int)11);	//@<BlockInfo>jp.vstone.block.talk.say,512,336,512,336,False,54,@</BlockInfo>
 																															//@<EndOfBlock/>
-									System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");											//@<BlockInfo>jp.vstone.block.freeproc,576,336,576,336,False,53,@</BlockInfo>
-									System.out.println(callName + "は登録済みです。");
-									System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");
+										System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");											//@<BlockInfo>jp.vstone.block.freeproc,576,336,576,336,False,53,@</BlockInfo>
+										System.out.println(callName + "は登録済みです。");
+										System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");
 							
-									try{
-										File file = new File("resource/動作ログ.txt");
-										BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
+										try{
+											File file = new File("resource/動作ログ.txt");
+											BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
 							
-										bw.write("[" + time_string + "]" + "既に登録されている" + " " + callName + " " + "を認識しました。");
-										bw.newLine();
+											bw.write("[" + time_string + "]" + "既に登録されている" + " " + callName + " " + "を認識しました。");
+											bw.newLine();
 							
-										bw.close();
-										}catch(FileNotFoundException e){
-										System.out.println(e);
-										}catch(IOException e){
-										System.out.println(e);
-										}
+											bw.close();
+											}catch(FileNotFoundException e){
+											System.out.println(e);
+											}catch(IOException e){
+											System.out.println(e);
+											}
 																															//@<EndOfBlock/>
 								break;																						//@<BlockInfo>jp.vstone.block.break,672,336,672,336,False,52,break@</BlockInfo>	@<EndOfBlock/>
 																															//@</OutputChild>
@@ -473,23 +473,23 @@ public class mymain
 																															//@<OutputChild>
 										GlobalVariable.sotawish.Say((String)"君のことは覚えたよ！",MotionAsSotaWish.MOTION_TYPE_TALK,(int)11,(int)13,(int)11);	//@<BlockInfo>jp.vstone.block.talk.say,640,400,640,400,False,58,@</BlockInfo>
 																															//@<EndOfBlock/>
-													System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");									//@<BlockInfo>jp.vstone.block.freeproc,704,400,704,400,False,57,@</BlockInfo>
-													System.out.println("新しい人物を登録しました。");
-													System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");
+																System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");									//@<BlockInfo>jp.vstone.block.freeproc,704,400,704,400,False,57,@</BlockInfo>
+																System.out.println("新しい人物を登録しました。");
+																System.out.println("-/-/-/-/-/-/-/-/-/-/-/-/-");
 							
-													try{
-														File file = new File("resource/動作ログ.txt");
-														BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
+																try{
+																	File file = new File("resource/動作ログ.txt");
+																	BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
 							
-														bw.write("[" + time_string + "]" + "新しい人物を登録しました。");
-														bw.newLine();
+																	bw.write("[" + time_string + "]" + "新しい人物を登録しました。");
+																	bw.newLine();
 							
-														bw.close();
-														}catch(FileNotFoundException e){
-														System.out.println(e);
-														}catch(IOException e){
-														System.out.println(e);
-														}
+																	bw.close();
+																	}catch(FileNotFoundException e){
+																	System.out.println(e);
+																	}catch(IOException e){
+																	System.out.println(e);
+																	}
 																															//@<EndOfBlock/>
 										break;																				//@<BlockInfo>jp.vstone.block.break,768,400,768,400,False,56,break@</BlockInfo>	@<EndOfBlock/>
 																															//@</OutputChild>
@@ -820,26 +820,23 @@ public class mymain
 	}																													//@<EndOfBlock/>
 
 	//@<Separate/>
-	public void method()																								//@<BlockInfo>jp.vstone.block.func,0,2176,864,2176,False,109,@</BlockInfo>
+	public void method()																								//@<BlockInfo>jp.vstone.block.func,0,2192,624,2192,False,109,@</BlockInfo>
 	throws SpeechRecogAbortException {
 		if(!GlobalVariable.TRUE) throw new SpeechRecogAbortException("default");
 
 																														//@<OutputChild>
-		GlobalVariable.robocam.initStill(new CameraCapture(CameraCapture.CAP_IMAGE_SIZE_QVGA, CameraCapture.CAP_FORMAT_MJPG));	//@<BlockInfo>jp.vstone.block.freeproc,80,2176,80,2176,False,110,@</BlockInfo>
-		for(int i=0;i<(int)100;i++)																						//@<BlockInfo>jp.vstone.block.for,64,2176,736,2176,False,109,コメント@</BlockInfo>
-				{
-																																//@<OutputChild>
-					{																											//@<BlockInfo>jp.vstone.block.facedetect.stillpicture,128,2176,128,2176,False,111,still@</BlockInfo>
-						String filepath = "/var/sota/photo/";
-						filepath += (String)"abc";
-						boolean isTrakcing=GlobalVariable.robocam.isAliveFaceDetectTask();
-						if(isTrakcing) GlobalVariable.robocam.StopFaceTraking();
-						GlobalVariable.robocam.StillPicture(filepath);
-						CRobotUtil.Log("stillpicture","save picthre file to \"" + filepath +"\"");
-						if(isTrakcing) GlobalVariable.robocam.StartFaceTraking();
-					}																											//@<EndOfBlock/>
-																																//@</OutputChild>
-				}
+		GlobalVariable.robocam.initStill(new CameraCapture(CameraCapture.CAP_IMAGE_SIZE_QVGA, CameraCapture.CAP_FORMAT_MJPG));	//@<BlockInfo>jp.vstone.block.freeproc,64,2192,64,2192,False,110,@</BlockInfo>
+				for(int i=0;i<(int)100;i++){
+							{
+								String filepath = "/var/sota/photo/";
+								filepath += (String)"abc";
+								boolean isTrakcing=GlobalVariable.robocam.isAliveFaceDetectTask();
+								if(isTrakcing) GlobalVariable.robocam.StopFaceTraking();
+								GlobalVariable.robocam.StillPicture(filepath);
+								CRobotUtil.Log("stillpicture","save picthre file to \"" + filepath +"\"");
+								if(isTrakcing) GlobalVariable.robocam.StartFaceTraking();
+							}
+						}
 																														//@<EndOfBlock/>
 																														//@</OutputChild>
 
