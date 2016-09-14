@@ -8,3 +8,13 @@ Class-Path: .
  /home/vstone/lib/opencv-310.jar 
  /home/vstone/lib/sotalib.jar 
  /home/vstone/lib/SRClientHelper.jar 
+ /home/vstone/lib/twitter4j-async-4.0.4.jar 
+ /home/vstone/lib/twitter4j-core-4.0.4.jar 
+ /home/vstone/lib/twitter4j-examples-4.0.4.jar 
+ /home/vstone/lib/twitter4j-media-support-4.0.4.jar 
+ /home/vstone/lib/twitter4j-stream-4.0.4.jar 
+ /home/root//lib/twitter4j-async-4.0.4.jar 
+ /home/root//lib/twitter4j-core-4.0.4.jar 
+ /home/root//lib/twitter4j-examples-4.0.4.jar 
+ /home/root//lib/twitter4j-media-support-4.0.4.jar 
+ /home/root//lib/twitter4j-stream-4.0.4.jar 

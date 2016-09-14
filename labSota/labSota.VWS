@@ -118,15 +118,21 @@
 		<d2p1:string>jp.vstone.camera.FaceDetectLib.*</d2p1:string>
 		<d2p1:string>jp.vstone.sotatalk.*</d2p1:string>
 		<d2p1:string>java.util.Random</d2p1:string>
+		<d2p1:string>twitter4j.Status</d2p1:string>
+		<d2p1:string>twitter4j.Twitter</d2p1:string>
+		<d2p1:string>twitter4j.TwitterException</d2p1:string>
+		<d2p1:string>twitter4j.TwitterFactory</d2p1:string>
+		<d2p1:string>twitter4j.User</d2p1:string>
+		<d2p1:string>twitter4j.conf.*</d2p1:string>
 	</_import>
 	<_isDisableCollidionDetect>false</_isDisableCollidionDetect>
 	<_isSetAutoExecute>false</_isSetAutoExecute>
-	<_mainFuncName>jp.co.mysota.mymain.method()</_mainFuncName>
+	<_mainFuncName>jp.co.mysota.mymain.workingChecker()</_mainFuncName>
 	<_manifestClassPath xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
 	<_target>Sota</_target>
 	<_templeteMainClassFilePath>src\mainTemplete.source</_templeteMainClassFilePath>
 	<appPropaty>
-		<_AppTitle>labSota</_AppTitle>
+		<_AppTitle>オープンキャンパス</_AppTitle>
 		<_ApplicationType>App</_ApplicationType>
 		<_ExecOption>-Dfile.encoding=UTF8 -Djava.library.path=/usr/local/share/OpenCV/java/ </_ExecOption>
 		<_StartSoundFile></_StartSoundFile>
@@ -404,7 +410,23 @@
 			</tpList>
 		</Pose>
 	</iniPoses>
-	<jarPath />
+	<jarPath>
+		<jarReference>
+			<classPath>C:\Users\makino\Documents\twitter4\lib\twitter4j-async-4.0.4.jar</classPath>
+		</jarReference>
+		<jarReference>
+			<classPath>C:\Users\makino\Documents\twitter4\lib\twitter4j-core-4.0.4.jar</classPath>
+		</jarReference>
+		<jarReference>
+			<classPath>C:\Users\makino\Documents\twitter4\lib\twitter4j-examples-4.0.4.jar</classPath>
+		</jarReference>
+		<jarReference>
+			<classPath>C:\Users\makino\Documents\twitter4\lib\twitter4j-media-support-4.0.4.jar</classPath>
+		</jarReference>
+		<jarReference>
+			<classPath>C:\Users\makino\Documents\twitter4\lib\twitter4j-stream-4.0.4.jar</classPath>
+		</jarReference>
+	</jarPath>
 	<package>
 		<javaPackage>
 			<javaClass xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -3553,7 +3575,7 @@
 				</uintID>
 			</MotSend>
 			<debugPort>8765</debugPort>
-			<host>192.168.1.31</host>
+			<host>192.168.1.6</host>
 			<password>edison00</password>
 			<platform>Edison</platform>
 			<rootPath>/home/root/</rootPath>

@@ -12,6 +12,12 @@ import jp.vstone.camera.*;
 import jp.vstone.camera.FaceDetectLib.*;
 import jp.vstone.sotatalk.*;
 import java.util.Random;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.User;
+import twitter4j.conf.*;
 
 
 public class main
@@ -41,7 +47,7 @@ public class main
 			jp.co.mysota.mymain mymain = new jp.co.mysota.mymain();
 			try
 			{
-				mymain.method();
+				mymain.workingChecker();
 			} catch(Exception e)
 			{
 				System.out.println("例外が発生しました:");
