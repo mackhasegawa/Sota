@@ -118,16 +118,20 @@
 		<d2p1:string>jp.vstone.camera.FaceDetectLib.*</d2p1:string>
 		<d2p1:string>jp.vstone.sotatalk.*</d2p1:string>
 		<d2p1:string>java.util.Random</d2p1:string>
+		<d2p1:string>java.nio.file.FileSystems</d2p1:string>
+		<d2p1:string>java.nio.file.FileSystem</d2p1:string>
+		<d2p1:string>java.nio.file.Path</d2p1:string>
 		<d2p1:string>twitter4j.Status</d2p1:string>
 		<d2p1:string>twitter4j.Twitter</d2p1:string>
 		<d2p1:string>twitter4j.TwitterException</d2p1:string>
 		<d2p1:string>twitter4j.TwitterFactory</d2p1:string>
 		<d2p1:string>twitter4j.User</d2p1:string>
 		<d2p1:string>twitter4j.conf.*</d2p1:string>
+		<d2p1:string>twitter4j.StatusUpdate</d2p1:string>
 	</_import>
 	<_isDisableCollidionDetect>false</_isDisableCollidionDetect>
 	<_isSetAutoExecute>false</_isSetAutoExecute>
-	<_mainFuncName>jp.co.mysota.mymain.workingChecker()</_mainFuncName>
+	<_mainFuncName>jp.co.mysota.mymain.tweetSpeak()</_mainFuncName>
 	<_manifestClassPath xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
 	<_target>Sota</_target>
 	<_templeteMainClassFilePath>src\mainTemplete.source</_templeteMainClassFilePath>
@@ -3530,7 +3534,6 @@
 		<d2p1:string>CallG.wav</d2p1:string>
 		<d2p1:string>CallH.wav</d2p1:string>
 		<d2p1:string>writeTest.txt</d2p1:string>
-		<d2p1:string>体温.txt</d2p1:string>
 		<d2p1:string>動作ログ.txt</d2p1:string>
 		<d2p1:string>OCtest.txt</d2p1:string>
 	</resourcePath>
@@ -3575,7 +3578,7 @@
 				</uintID>
 			</MotSend>
 			<debugPort>8765</debugPort>
-			<host>192.168.1.6</host>
+			<host>192.168.1.48</host>
 			<password>edison00</password>
 			<platform>Edison</platform>
 			<rootPath>/home/root/</rootPath>
